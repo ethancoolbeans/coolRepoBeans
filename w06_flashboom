@@ -1,0 +1,23 @@
+
+
+void setup () {
+  size(500, 500);
+}
+
+void draw () {
+  drawLightning(100, 10, 5);
+  noLoop();
+}
+
+void drawLightning (int x, int y, int numParts) {
+  while (numParts > 0) {
+    stroke(255, 255, 0);
+    strokeWeight(5);
+    var ranX = int(x + random(-5, 6)); 
+    var ranY = int(y + random(5, 20));
+    line(x, y, ranX, ranY);
+    x = ranX;
+    y = ranY;
+    numParts -= 1;
+
+  }}
