@@ -1,0 +1,19 @@
+Ethan Ma
+NextCS pd. 10
+
+void setup () {
+  size(500, 500);
+}
+void draw () {
+  myPet(100, 100);
+}
+
+void myPet(int x, int y) {
+  strokeWeight (4);
+  rect(x, y, 150, 110);
+  fill(0, 0, 0);
+  rect(x+25, y+5, 100, 100);
+  stroke(0, 255, 0);
+  line(x+55, y+55, x+55, y+35);
+  line(x+105, y+55, x+105, y+35);
+}
