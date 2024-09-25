@@ -1,1 +1,239 @@
+void setup() {
+  size(800, 800);
+  background(#D8D6D8);
+  
+  stroke(0);
+  strokeWeight (5);
+  
+  // Banner shapes
+  fill(#B3C5E3);  // blue
+  beginShape();
+  vertex(200, 100);
+  vertex(400, 100);
+  vertex(400, 350);
+  vertex(118, 350);
+  endShape(CLOSE);
+  
+  fill(#DDBFED);  // purple
+  beginShape();
+  vertex(118, 350);
+  vertex(100, 400);
+  vertex(400, 700);
+  vertex(400, 350);
+  endShape(CLOSE);
+  
+  fill(#A9D3A6);  // green
+  beginShape();
+  vertex(400, 350);
+  vertex(680, 350);
+  vertex(700, 400);
+  vertex(400, 700);
+  endShape(CLOSE);
+  
+  fill(#F7DCF3);  // pink
+  beginShape();
+  vertex(400, 350);
+  vertex(400, 100);
+  vertex(600, 100);
+  vertex(680, 350);
+  endShape(CLOSE);
+
+  // Angela
+  drawCat(280, 250);  // Adjust position if needed
+
+  // Koi
+  drawHelloKitty(400,250);
+  
+  //Ethan
+  drawGeoDash(437,380);
+  
+  //syarah
+  drawrectCat (30,240);
+}
+
+void draw() {
+  // Empty since everything is drawn in setup
+}
+
+// ANGELA- Cat
+void drawCat(int x, int y) {
+  stroke(227, 192, 158);
+  fill(227, 192, 158);
+  ellipse(x, y - 15, 165, 130); // Head
+
+  fill(0, 0, 0);
+  rect(x - 40, y - 40, 10, 20); // Left eye
+  rect(x + 25, y - 40, 10, 20); // Right eye
+
+  stroke(255, 255, 255);
+  fill(255, 255, 255);
+  rect(x - 40, y - 40, 9, 6); // Left eye white
+  rect(x + 25, y - 40, 9, 6); // Right eye white
+
+  fill(255, 180, 180);
+  stroke(255, 180, 180);
+  square(x - 10, y - 10, 12); // Nose
+
+  fill(167, 86, 5);
+  stroke(167, 86, 5);
+  rect(x + 5, y - 75, 10, 30); // Left stripe
+  rect(x - 15, y - 75, 10, 30); // Right stripe
+
+  // Whiskers
+  rect(x - 92, y - 25, 30, 5);
+  rect(x - 92, y - 10, 30, 5);
+  rect(x + 58, y - 25, 30, 5);
+  rect(x + 58, y - 10, 30, 5);
+
+  // Mouth
+  fill(255, 180, 180);
+  stroke(255, 180, 180);
+  rect(x - 20, y + 20, 35, 8);
+
+  // Ears
+  fill(227, 192, 158);
+  stroke(227, 192, 158);
+  square(x - 80, y - 85, 40); // Left ear
+  square(x + 40, y - 85, 40); // Right ear
+
+  fill(255, 180, 180);
+  square(x - 70, y - 70, 20); // Left inner ear
+  square(x + 50, y - 70, 20); // Right inner ear
+}
+
+// KOI - Hello Kitty
+void drawHelloKitty(int x, int y) {
+
+  int offsetX = 325, offsetY = 100;  // move drawing
+int headWidth = 200, headHeight = 150;
+int eyeWidth = 17, eyeHeight = 25;
+int noseWidth = 20, noseHeight = 15;
+int whiskerLength = 30;
+int bowWidth1 = 42, bowHeight1 = 50, bowWidth2 = 42, bowHeight2 = 50, bowCenterSize = 37;
+
+  // head
+  fill (255,255,255);
+  stroke(0);
+  strokeWeight(7);
+  ellipse(200 + offsetX, 150 + offsetY, headWidth, headHeight);
+
+  // ears // No outline
+  noStroke();
+  fill(255, 255, 255); // White ears
+  triangle(115 + offsetX, 120 + offsetY, 120 + offsetX, 59 + offsetY, 170 + offsetX, 90 + offsetY); // Left ear
+  triangle(285 + offsetX, 120 + offsetY, 280 + offsetX, 59 + offsetY, 230 + offsetX, 90 + offsetY); // Right ear
+
+  // eyes
+  fill(0); // Black for eyes
+  ellipse(160 + offsetX, 165 + offsetY, eyeWidth, eyeHeight); // Left eye
+  ellipse(240 + offsetX, 165 + offsetY, eyeWidth, eyeHeight); // Right eye
+
+  // nose
+  stroke(0);
+  strokeWeight(4);
+  fill(#FFDC6A);
+  ellipse(200 + offsetX, 180 + offsetY, noseWidth, noseHeight);
+
+  // whiskers
+  stroke(0);
+  strokeWeight(7); // Black for whiskers
+
+  line(120 + offsetX, 160 + offsetY, 90 + offsetX, 160 + offsetY); // L whisker 1
+  line(120 + offsetX, 175 + offsetY, 93 + offsetX, 180 + offsetY); // L whisker 2
+  line(120 + offsetX, 190 + offsetY, 100 + offsetX, 200 + offsetY); // L whisker 3
+
+  line(280 + offsetX, 160 + offsetY, 310 + offsetX, 160 + offsetY); // R whisker 1
+  line(280 + offsetX, 175 + offsetY, 310 + offsetX, 180 + offsetY); // R whisker 2
+  line(280 + offsetX, 190 + offsetY, 295 + offsetX, 200 + offsetY); // R whisker 3
+
+  // ear outline
+  strokeWeight(7);
+  line(109 + offsetX, 120 + offsetY, 120 + offsetX, 59 + offsetY);
+  line(120 + offsetX, 59 + offsetY, 165 + offsetX, 83 + offsetY);
+  line(291 + offsetX, 120 + offsetY, 280 + offsetX, 59 + offsetY);
+  line(280 + offsetX, 59 + offsetY, 233 + offsetX, 83 + offsetY);
+
+  // bow
+  fill(#FF001E);
+  ellipse(230 + offsetX, 90 + offsetY, bowWidth1, bowHeight1);
+  ellipse(280 + offsetX, 110 + offsetY, bowWidth2, bowHeight2);
+  circle(255 + offsetX, 100 + offsetY, bowCenterSize);
+  // Draw lines over the filled sections
+  stroke(0);
+  strokeWeight(5);
+  line (200, 100, 600, 100); // top line
+  line (200, 100, 100, 400); // mid left
+  line (600, 100, 700, 400); // mid right
+  line (100, 400, 400, 700); // bot left
+  line (700, 400, 400, 700); // bot right
+  
+  line (400, 100, 400, 700); // vert split
+  line (118, 350, 680, 350); // horiz split
+}
+
+//ETHAN -GeoDash
+void drawGeoDash(int x, int y) {
+  fill(0, 0, 0);
+  strokeWeight (4);
+  stroke(0, 255, 0);
+  rect(x, y, 150, 110);
+  rect(x+25, y+5, 100, 100);
+  line(x+55, y+55, x+55, y+35);
+  line(x+105, y+55, x+105, y+35);
+}
+
+
+//SYARAH- rectcat
+ void drawrectCat (int x, int y) {
+     {
+       stroke (0);
+       strokeWeight (2);
+       fill(0,0,0);
+  myPetBodyHead (x,y);
+  myPetEarsNose (x,y);
+  myPetEyes (x,y);
+  myPetLegs (x,y);
+}}
+
+void myPetBodyHead (int rect1xcor, int rect1ycor) { 
+// main body
+//int rect1xcor = 200;
+//int rect1ycor = 200;
+fill (#FC91EB);
+rect (rect1xcor + 200, rect1ycor + 200, 140, 70, 5);
+// head
+//int rect2xcor = 150;
+//int rect2ycor = 150;
+fill (#FCAD6B);
+rect (rect1xcor + 150, rect1ycor + 150, 100, 80, 5);
+}
+
+void myPetEarsNose (int trix, int triy) {
+// ears
+fill (#FFFFFF);
+
+triangle (trix + 175, triy+130, trix+165, triy+150, trix+185, triy+150);
+
+triangle (trix+215, triy+130, trix+205, triy+150, trix+225, triy+150);
+// nose
+
+triangle (trix+195, triy+200, trix+205, triy+200, trix+200, triy+210);
+}
+
+void myPetEyes (int cirx, int ciry) {
+// eyes
+fill (#000000);
+
+circle (cirx+180, ciry+180, 10);
+
+circle (cirx+220, ciry+180, 10);
+}
+void myPetLegs (int legx, int legy) {
+// legs
+fill (#FFFFFF);
+rect (legx + 210, legy+300, 15, 15);
+rect (legx+270, legy+300, 15, 15);
+rect (legx+315, legy+300, 15, 15);
+rect (legx+375, legy+300, 15, 15);
+}
 
