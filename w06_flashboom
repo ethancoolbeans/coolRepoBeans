@@ -1,4 +1,8 @@
-
+Ethan Ma
+NeXTCS
+HW06 -- x, y, nextX, nextY
+2024-9-19
+timespent: 0.3
 
 void setup () {
   size(500, 500);
