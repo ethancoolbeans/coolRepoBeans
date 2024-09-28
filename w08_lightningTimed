@@ -1,3 +1,9 @@
+Ethan Ma
+NeXTCS
+HW08 -- UsingFrameRate
+2024-9-22
+timespent: 0.8
+
 //Task 1: This program draws a lightning bolt at intervals. These lightning bolts each have different locations and length. 
 //Task 2: Draw - organization (all functions are called in draw()), it runs continuously and creates the image
 //        frameRate - determines the # of times draw() iterates per second
