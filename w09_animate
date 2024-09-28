@@ -1,3 +1,9 @@
+Ethan Ma
+NeXTCS
+HW09 -- MoveAvatar
+2024-9-23
+timespent: 0.5
+
 int x = int(random(0, 450));
 int y = int(random(0, 450));
 
