@@ -1,5 +1,8 @@
 Ethan Ma
-NextCS pd. 10
+NeXTCS
+HW03 -- Drawing
+2024-9-12
+timespent: 0.3
 
 void setup () {
   size(500, 500);
