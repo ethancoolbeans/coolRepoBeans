@@ -1,3 +1,9 @@
+Ethan Ma
+NeXTCS
+HW13 -- For (Chain of Circles From One)
+2024-10-1
+timespent: 0.6
+
 int cx, cy;
 int csize;
 int circles; 
