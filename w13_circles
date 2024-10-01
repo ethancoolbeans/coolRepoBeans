@@ -17,7 +17,7 @@ void draw() {
     background(0);
     circleRow(cx, cy, circles, csize);
     cx = cx + csize;
-    if (cx > width) {
+    if (cx + int(circles - 1) * csize > width) {
       cx = csize/2;
       cy = cy + csize;}
   }
@@ -26,7 +26,7 @@ void draw() {
 void circleRow(int cx, int cy, int circles, int csize) {
   for (int i = circles; 0 < i; i = i - 1) {
     fill(83, 195, 189);
-    int finalx = cx + csize * i;
+    int finalx = cx + csize * int(i - 1);
     circle(finalx, cy, csize);
   }
 }
