@@ -74,19 +74,32 @@ void draw()
  Each row should have numCols rectangles, and there should be numRows rows.
  Each rectangle should be rectWidth x rectHeight.
  ***********************/
-void tile(int numRows, int numCols, int rectWidth, int rectHeight)
-{
-
-}//tile
+void tile(int numRows, int numCols, int rectWidth, int rectHeight) {
+  background(255);
+  for (int i = 0; i < numRows; i += 1) {
+    line(0, rectHeight * i, width, rectHeight * i);
+  for (int z = 0; z < numCols; z += 1) {
+    line(rectWidth * z, 0, rectWidth * z, height);}
+}}//tile
 
 /***********************
  Create a grid of rectangles using the  provided parameters.
  Select 2 fill colors.
  The fill color should alternate every other ROW.
  ***********************/
-void alternateRows(int numRows, int numCols, int rectWidth, int rectHeight)
-{
-
+void alternateRows(int numRows, int numCols, int rectWidth, int rectHeight){
+  background(255);
+  for (int i = 0; i < numRows; i += 1) {
+    if (i % 2 == 1) {
+      fill(0); 
+      rect(0, rectHeight * i, width, rectHeight);
+    }
+    else {
+    fill(255);
+    rect(0, rectHeight * i, width, rectHeight);}
+  }
+    for (int z = 0; z < numCols; z += 1) {
+    line(rectWidth * z, 0, rectWidth * z, height);}
 }//alternateRows
 
 /***********************
@@ -97,10 +110,18 @@ void alternateRows(int numRows, int numCols, int rectWidth, int rectHeight)
 
  You should not use the logical && or || operators. Keep your conditional statements to a single condition.
  ***********************/
-void triColor(int numRows, int numCols, int rectWidth, int rectHeight)
-{
-
-}//tricolor
+void triColor(int numRows, int numCols, int rectWidth, int rectHeight){
+  for (int z = 0; z < numCols; z += 1) {
+    line(rectWidth * z, 0, rectWidth * z, height);
+    if (z <= 7) {
+      fill(255, 0, 0);}
+      else if (z <= 15) {
+      fill(0, 255, 0);}
+      else {fill(0, 0, 255);}
+    rect(rectWidth * z, 0, rectWidth, height);}
+  for (int i = 0; i < numRows; i += 1) {
+    line(0, rectHeight * i, width, rectHeight * i);
+}}//tricolor
 
 
 /***********************
@@ -111,9 +132,19 @@ void triColor(int numRows, int numCols, int rectWidth, int rectHeight)
 
  You should not use the logical && or || operators. Keep your conditional statements to a single condition.
  ***********************/
-void rainbow(int numRows, int numCols, int rectWidth, int rectHeight)
-{
-
+void rainbow(int numRows, int numCols, int rectWidth, int rectHeight){
+  for (int i = 0; i < numRows; i += 1) {
+    line(0, rectHeight * i, width, rectHeight * i);
+    if (i <= 2) {
+      fill(255, 0, 0);}
+      else if (i <= 5) {fill(255, 125, 0);}
+      else if (i <= 8) {fill(255, 255, 0);}
+      else if (i <= 11) {fill(0, 255, 0);}
+      else if (i <= 14) {fill(0, 0, 255);}
+      else {fill(125, 0, 255);}
+    rect(0, rectHeight * i, width, rectHeight);}
+  for (int z = 0; z < numCols; z += 1) {
+    line(rectWidth * z, 0, rectWidth * z, height);}
 }//rainbow
 
 
@@ -122,10 +153,19 @@ void rainbow(int numRows, int numCols, int rectWidth, int rectHeight)
 
  Fill color should create a checkerboard pattern.
  ***********************/
- void checkerboard(int numRows, int numCols, int rectWidth, int rectHeight)
- {
-
- }//checkerboard
+void checkerboard(int numRows, int numCols, int rectWidth, int rectHeight){
+  for (int y = 0; y < numRows; y += 1) {
+    if (y % 2 == 0) {
+      for (int i = 0; i < numCols; i += 1) {
+       if (i % 2 == 0) {
+       fill(255);}
+       else{fill(0);}
+       rect(rectWidth * i, rectHeight * y, rectWidth, rectHeight);}}
+    else {for (int i = 0; i < numCols; i+= 1) {
+      if (i % 2 == 1) {
+        fill(255);}
+        else{fill(0);}
+        rect(rectWidth * i, rectHeight * y, rectWidth, rectHeight);}}}}//checkerboard
 
 
 /***********************
@@ -140,7 +180,12 @@ The third column should have 2 white rectangles on the top and bottom, and the r
 
 This pattern should continue until the entire colum is white, and then all remaining columns will be white as well.
 ***********************/
-void arrow(int numRows, int numCols, int rectWidth, int rectHeight)
-{
-
-}//arrow
+void arrow(int numRows, int numCols, int rectWidth, int rectHeight){
+  background(255);
+  for (int i = 0; i < numRows; i += 1) {
+    line(0, rectHeight * i, width, rectHeight * i);
+  for (int z = 0; z < numCols; z += 1) {
+    line(rectWidth * z, 0, rectWidth * z, height);}
+  for (int d = 0; d < numRows/2; d += 1) {fill(0);
+    rect(rectWidth * d, rectHeight * d, rectWidth, int(height - (d * 2 * rectHeight)));}}
+  }//arrow
