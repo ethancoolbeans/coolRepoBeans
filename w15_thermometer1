@@ -1,1 +1,38 @@
 
+int CELSIUS = 0;
+int FAHRENHEIT = 1;
+float ft = 30;
+
+
+void setup() {
+  size(300, 500);
+  drawThermometer(50, 50, 100, 500, ft, FAHRENHEIT);
+  frameRate(30);
+  textAlign(CENTER, CENTER);
+}
+
+//float fToC(float FAHREINHEIT) {
+//  float c = (FAHREINHEIT-32)*5/9; 
+//}
+
+void drawScale(int x, float y, int h) {
+  float hashY = 7 * h/8;
+  textSize(hashY/24);
+  int num = 0;
+  for (float i = hashY; i > h/8; i -= hashY/24) {
+    fill(255, 0, 0);
+    line(2*x, i, 5*x, i);
+    text(num, 2*x, i);
+    num += 5;
+   }
+}
+
+void drawReading(int x, int y, int w, int h) {
+  rect(x, y, w, h);
+}
+
+void drawThermometer(int x, int y, int w, int h, float ft, int scale) {
+  //rect(x, y, w - (2 * x), h - (2 * y));
+  drawReading(x, y, 4/10*w, 9/10*h);
+  drawScale(x, y, h);
+}
