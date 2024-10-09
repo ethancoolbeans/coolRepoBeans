@@ -54,7 +54,3 @@ void drawThermometer(int x, int y, int w, int h, float ft, int scale) {
   fill(255);
   drawScale(x+10, y+h/20, 9*h/10, scale);
 }
-  fill(0);
-  text(ft, x+3*w/10, y+h/20);
-  drawScale(x+10, y+h/20, 9*h/10, scale);
-}
