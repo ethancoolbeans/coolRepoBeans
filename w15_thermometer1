@@ -2,17 +2,24 @@ Ethan Ma
 NeXTCS
 HW15 -- Formattting objects relative to each other w/ division, improved on thermometer0
 2024-10-8
-timespent: 1
+timespent: 1.3
 
 int CELSIUS = 0;
 int FAHRENHEIT = 1;
-
+float ft = 0;
 
 void setup() {
   size(300, 600);
-  drawThermometer(50, 50, 100, 500, 50, CELSIUS);
   frameRate(30);
   textAlign(CENTER, CENTER);
+}
+void draw() {
+  background(150);
+  if (frameCount % 30 == 1) {
+    ft = random(32, 212);
+  }
+  drawThermometer(50, 50, 100, 500, ft, FAHRENHEIT);
+  drawThermometer(150, 50, 100, 500, fToC(ft), CELSIUS);
 }
 
 void drawScale(int x, float y, int h, int scale) {
@@ -29,7 +36,10 @@ void drawScale(int x, float y, int h, int scale) {
 void drawReading(int x, int y, int w, int h, float ft, int scale) {
   rect(x, y, w, h);
   fill(255, 0, 0);
-  rect(x, y+h, w, -ft/100*h);
+  if (scale == 1) {
+    rect(x, y+h, w, -ft/212*h);}
+    else {rect(x, y+h, w, -ft/100*h);}
+  fill(255);
 }
 
 float fToC(float fahrenheit) {
@@ -38,9 +48,12 @@ float fToC(float fahrenheit) {
 
 void drawThermometer(int x, int y, int w, int h, float ft, int scale) {
   rect(x, y, w, h); //thermometer
-  if (scale == 0) {
-    ft = fToC(ft);}
   drawReading(x+3*w/10, y+h/20, 4*w/10, 9*h/10, ft, scale);
+  fill(0);
+  text(ft, x+3*w/6, y+h/30);
+  fill(255);
+  drawScale(x+10, y+h/20, 9*h/10, scale);
+}
   fill(0);
   text(ft, x+3*w/10, y+h/20);
   drawScale(x+10, y+h/20, 9*h/10, scale);
