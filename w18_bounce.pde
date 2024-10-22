@@ -18,6 +18,7 @@
   TASK 2 response:  
   The vertical moving circle has udy, which corresponds to vertical movement. The horizontal moving circle has lrx, which corresponds to horizontal movement. Since these two 
   circles only move on one axis, having a distinct variable for the x and y values of each circle would be unnecessary. 
+  udy and lrx also give both circles the same starting point.
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
 
