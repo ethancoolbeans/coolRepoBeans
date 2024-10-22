@@ -8,15 +8,16 @@
   CODE FOR ANALYSIS for work18
 
   TASK 0 response:
-  YOUR RESPONSE HERE
+  The circles start at the center and move until they touch the sides. Then their velocity reverses and they bounce the other direction.
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
   TASK 1 response:
-  YOUR RESPONSE HERE
+  'r' brings the circles back to the center. ' ' makes the circles stop wherever they are.
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
   TASK 2 response:  
-  YOUR RESPONSE HERE
+  The vertical moving circle has udy, which corresponds to vertical movement. The horizontal moving circle has lrx, which corresponds to horizontal movement. Since these two 
+  circles only move on one axis, having a distinct variable for the x and y values of each circle would be unnecessary. 
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
 
@@ -47,6 +48,7 @@ void draw()
 
   circle(width/2, udy, csize);
   circle(lrx, height/2, csize);
+  circle(lrx, udy, csize);
 
   if (moving) {
     if (udy >= height - csize/2 ||
