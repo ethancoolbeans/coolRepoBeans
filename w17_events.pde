@@ -25,7 +25,9 @@ void draw() {
   circle(mouseX, mouseY, 30);
   if (space == false) {
     if (lineExist == true) {
-      line(mouseX, mouseY, squareX, squareY);
+      lineX = mouseX; 
+      lineY = mouseY;
+      line(lineX, lineY, squareX, squareY);
     }
   }
   square(squareX, squareY, 30);
