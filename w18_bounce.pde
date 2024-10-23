@@ -3,7 +3,7 @@
   NeXTCS
   HW18 -- Circles bounce off sides
   2024-10-22
-  timespent: 
+  timespent: 0.6
 
   CODE FOR ANALYSIS for work18
 
@@ -27,6 +27,9 @@ int udy, udspeed;
 //variables for the left-right circle
 int lrx, lrspeed;
 
+int xcor, xspeed;
+int ycor, yspeed;
+
 //other variables
 int csize;
 boolean moving;
@@ -34,11 +37,16 @@ boolean moving;
 void setup() 
 {
   size(600, 400);
+//3 circles
   udy = height/2;
   lrx = width/2;
-  udspeed = lrspeed = 1;
-
+  udspeed = lrspeed = 1;  
   csize = 40;
+//4th cirlce
+  xcor = int(random(csize, width-csize));
+  ycor = int(random(csize, height-csize));
+  xspeed = -1;
+  yspeed = 1;
   moving = true;
 }//setup
 
@@ -50,13 +58,14 @@ void draw()
   circle(width/2, udy, csize);
   circle(lrx, height/2, csize);
   circle(lrx, udy, csize);
+  circle(xcor, ycor, csize);
 
   if (moving) {
     if (udy >= height - csize/2 ||
         udy <= csize/2) {
         udspeed *= -1;
     }//up/down bounce
-
+    
     if (lrx >= width - csize/2 ||
         lrx <= csize/2) {
         lrspeed *= -1;
@@ -64,6 +73,19 @@ void draw()
 
     udy += udspeed;
     lrx += lrspeed;
+//for 4th circle
+    if (ycor >= height - csize/2 ||
+        ycor <= csize/2) {
+        yspeed *= -1;
+    }//up/down bounce
+    
+    if (xcor >= width - csize/2 ||
+        xcor <= csize/2) {
+        xspeed *= -1;
+    }//left/right bounce
+    
+    ycor += yspeed;
+    xcor += xspeed;
   }//moving
 
 }//draw
@@ -77,5 +99,8 @@ void keyPressed()
   if (key == 'r') {
     udy = height/2;
     lrx = width/2;
+//4th circle
+    ycor = height/2;
+    xcor = width/2;
   }
 }//keyPressed
