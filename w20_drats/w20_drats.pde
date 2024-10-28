@@ -1,3 +1,12 @@
+/*
+  Ethan Ma
+  NeXTCS
+  HW20 -- Drats
+  2024-10-27
+  timespent: 1.2
+*/
+
+
 Die d0, d1;  //declare 2 vars of type Die
 
 int target;
@@ -17,6 +26,8 @@ void draw()
   background(150);
   d0.display();  //ask d0 to perform its display action
   d1.display();  //ask d1 to perform its display action
+  fill(0);
+  textAlign(CENTER);
   textSize(25);
   if (lose) {
     text("lost", width/2, height/2);
@@ -26,6 +37,7 @@ void draw()
     text("target: " + target, width/2, 50);
     text("score: " + score, width/2, 150);
   }
+  fill(255);
 }//draw
 
 
