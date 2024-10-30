@@ -1,0 +1,116 @@
+/*
+  Ethan Ma
+  NeXTCS
+  HW21 -- Flag
+  2024-10-29
+  timespent: 0.5
+*/
+
+void setup(){
+  size(500,500);
+  SebastianAvatarFxn(250,250);
+  BrianAvatarFxn(250, 400);
+  EthanAvatarFxn(375, 50);
+}
+
+void SebastianAvatarFxn(int x, int y){
+  // checkerboard background
+  int squareSize = 25; // Size of each square in the checkered board
+  int boardSize = squareSize * 10; // Total size of the 10x10 checkered board
+  
+  // Center the checkered board inside the circular pattern
+  int startX = x - 125 - boardSize / 2;
+  int startY = y - 125 - boardSize / 2;
+  
+  for (int i = 0; i < 10; i++) { // 10 columns
+    for (int j = 0; j < 10; j++) { // 10 rows
+      if ((i + j) % 2 == 0) {
+        fill(0); // Black squares
+      } else {
+        fill(255); // White squares
+      }
+      rect(startX + i * squareSize, startY + j * squareSize, squareSize, squareSize);
+    }
+  }
+  
+  // gradient circle 
+  int b = 100; // blue color
+  int d = 220; // diameter 
+  for(int i = 0; i < 10; i ++){
+    fill(0,0,b);
+    circle(x - 125, y - 125, d);
+    b += 20;
+    d -= 15;    
+  } 
+}
+
+void EthanAvatarFxn(int x, int y) {
+  stroke(0, 255, 0);
+  strokeWeight(40);
+  for (int i = 5; i > 0; i --) {
+    int nextX = int(x + random(-30, 30));
+    int nextY = y + 40;
+    line(x, y, nextX, nextY);
+    x = nextX;
+    y = nextY;
+  } //squiggly balloon
+  strokeWeight(5);
+  for(int i = 200; i > 0; i --) { //aligns squiggly arms
+    drawSineCurve(i + 275, 20, 120, 10);
+  }
+}
+
+/*
+trig for squiggly arms
+*/
+float getSineY(int theta, float amplitude, int k) {
+    return (amplitude * sin(PI/50*theta) + k);
+}
+void drawSineCurve(int x, float amplitude, int k, int d) {
+  stroke(0, 255, 0);  
+  circle(x, getSineY(x, amplitude, k), d);
+}
+
+void BrianAvatarFxn(int cx, int cy) {
+  lines(cx, cy);
+  circles(cx, cy);
+  center(cx, cy);
+}
+
+void lines(int cx, int cy) {
+  stroke(#d4af37);
+  fill(#d4af37);
+  for (int x = cx - 100; x <= cx + 100; x+=5) {
+    if (abs(cx - x) > 50) {
+      circle(x, cy, 10);
+    } //horizontal lines
+  }
+  for (int x = cx - 40; x <= cx + 40; x+=1) {
+    circle(x, cy - 2 * (cx - x), 10);
+  } //diagonal, where y = mx!!!
+}
+
+void circles(int cx, int cy) {
+  stroke(#d4af37);
+  fill(#d4af37);
+  for (float theta = 0; theta < 5 * PI / 3; theta+=0.05) {
+    circle(cx + 50 * cos(theta),cy + 50 * sin(theta), 10);
+  } //outer circles
+  for (float theta = PI; theta < 8 * PI / 3; theta+=0.05) {
+    circle(cx + 30 * cos(theta),cy + 30 * sin(theta), 10);
+  } //inner circles
+}
+
+void center(int cx, int cy) {
+  translate(cx, cy);
+  fill(255, 0, 0);
+  ellipse(0, 0, 20, 40);
+  rotate(2 * PI/3);
+  fill(0 , 255 , 0);
+  ellipse(0, 0, 20, 40);
+  rotate(2 * PI/3);
+  fill(0, 0, 255);
+  ellipse(0, 0, 20, 40);
+  rotate(2 * PI/3);
+  translate(-cx, -cy);
+}
