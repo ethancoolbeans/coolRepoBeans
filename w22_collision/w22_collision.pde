@@ -4,8 +4,8 @@ Ethan Ma
   HW22 -- collision detection
   2024-10-30
   timespent: 1
-DISCO: 
-QCC: 
+DISCO: Getting more accustomed to how Class {} is defined and used
+QCC: N/A
 */
 
 color SAFE_COLOR = color(0, 255, 255);
