@@ -1,3 +1,13 @@
+/**
+Ethan Ma
+  NeXTCS
+  HW22 -- collision detection
+  2024-10-30
+  timespent: 1
+DISCO: 
+QCC: 
+*/
+
 color SAFE_COLOR = color(0, 255, 255);
 color COLLISION_COLOR = color(255, 0, 255);
 
