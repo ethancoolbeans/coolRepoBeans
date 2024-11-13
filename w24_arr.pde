@@ -1,3 +1,13 @@
+/*
+  Ethan Ma
+  NeXTCS
+  HW24 -- Array
+  2024-11-13
+  timespent: 0.3
+
+  DISCO: Sorting through an array and finding the highest value using a for loop and indices. 
+*/
+
 /***********************************************
 TASK 0 RESPONSES:
 
