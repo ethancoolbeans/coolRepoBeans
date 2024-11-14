@@ -1,3 +1,13 @@
+/*
+  Ethan Ma
+  NeXTCS
+  HW25 -- Array connect the dots
+  2024-11-13
+  timespent: 0.7
+
+  DISCO: Referencing the index AFTER the current index in a for loop, affecting the values at each index. 
+*/
+
 int[] xvals;
 int[] yvals;
 int numPoints;
@@ -77,10 +87,16 @@ void keyPressed() {
       }
     }
     if (key == '+') {
-      
+      for (int i = 0; i < xvals.length; i++) {
+        xvals[i] = xvals[i] * 5/4;
+        yvals[i] = yvals[i] * 5/4;
+      }
     }
     if (key == '-') {
-      
+      for (int i = 0; i < xvals.length; i++) {
+        xvals[i] = xvals[i] * 3/4;
+        yvals[i] = yvals[i] * 3/4;
+      }
     }
   }
   if (key == 'r') {
