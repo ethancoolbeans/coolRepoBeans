@@ -1,6 +1,7 @@
 int[] xvals;
 int[] yvals;
 int numPoints;
+boolean active = true;
 
 void setup() {
   size(600, 400);
@@ -13,11 +14,19 @@ void setup() {
   drawLines(xvals, yvals);
 }
 
+void draw() {
+  background(0);
+  if (active) {
+    drawLines(xvals, yvals);
+  }
+}
+
 void makeLines(int[] xs, int[] ys, int points) {
   if (points > xs.length) {
     
   } else {
     for (int i = 0; i < points; i++) {
+      numPoints += 1; //(for drawLines), stores # of indices (counts from 1)
       xs[i] = int(random(0, width));
       ys[i] = int(random(0, height));
     }
@@ -25,7 +34,56 @@ void makeLines(int[] xs, int[] ys, int points) {
 }
 
 void drawLines(int[] xs, int[] ys) {
-  for (int i = 0; i < xs.length-1; i++) { //xs.length-1 or i will reach last index and i+1 DNE
+  stroke(255);
+  for (int i = 0; i < numPoints-1; i++) { //xs.length-1 or i will reach last index and i+1 (0, 0)
     line(xs[i], ys[i], xs[i+1], ys[i+1]);
+  }
+  stroke(0);
+}
+
+void mousePressed() {
+  if (active) {
+    xvals[numPoints] = mouseX;
+    yvals[numPoints] = mouseY;
+    numPoints += 1;
+  }
+}
+
+void keyPressed() {
+  if (active) {
+    if (key == ' ') {
+      xvals[numPoints] = int(random(0, width));
+      yvals[numPoints] = int(random(0, height));
+      numPoints += 1;
+    }
+    if (keyCode == UP) {
+      for (int i = 0; i < xvals.length; i++) {
+        yvals[i] -= 1;
+      }
+    }
+    if (keyCode == DOWN) {
+      for (int i = 0; i < xvals.length; i++) {
+        yvals[i] += 1;
+      }
+    }
+    if (keyCode == RIGHT) {
+      for (int i = 0; i < xvals.length; i++) {
+        xvals[i] += 1;
+      }
+    }
+    if (keyCode == LEFT) {
+      for (int i = 0; i < xvals.length; i++) {
+        xvals[i] -= 1;
+      }
+    }
+    if (key == '+') {
+      
+    }
+    if (key == '-') {
+      
+    }
+  }
+  if (key == 'r') {
+    active = !active;
   }
 }
