@@ -1,0 +1,42 @@
+int NUM_ROWS = 6;
+int NUM_COLS = 15;
+
+char[][] grid;
+
+void setup() {
+  size(600, 300);
+
+  grid = new char[NUM_ROWS][NUM_COLS];
+  orderedChars(grid);
+  drawGrid(grid);
+}//setup
+
+void draw() {
+  background(0);
+  drawGrid(grid);
+}//draw
+
+void keyPressed() {
+  if (key == 'o') {
+    orderedChars(grid);
+  }
+  //if (key == 'r') {
+  //  randomLetters(grid);
+  //}
+}//keyPressed
+
+void orderedChars(char[][] cd) {
+  for (int i = 0; i < cd.length; i++) {
+    for (int j = 0; j < cd[i].length; j++) {
+      cd[i][j] = char(33 + j);
+    }
+  }
+}
+
+void drawGrid(char[][] cd) {
+  for (int i = 0; i < cd.length; i++) {
+    for (int j = 0; j < cd[i].length; j++) {
+      text(cd[i][j], 50 + j * 10, i * 10);
+    }
+  } 
+}
