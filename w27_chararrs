@@ -1,3 +1,17 @@
+```
+Ethan Ma
+NeXTCS
+HW27 -- 2D Arrays, populating each index with ASCII values
+2024-11-20
+time spent: 0.6
+```
+
+DISCO:
+- char(int) where int refers to an ASCII value makes letters!
+- 2D arrays are formatted char[][]. It starts with a 1D array (column) --> 2D arrays are when each index is filled with a horizontal array
+QCC:
+N/A
+
 int NUM_ROWS = 6;
 int NUM_COLS = 15;
 
