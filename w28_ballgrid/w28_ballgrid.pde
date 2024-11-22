@@ -28,7 +28,11 @@ void keyPressed() {
 }
 
 void makeBalls(Ball[][] g) {
-  
+  for (int i = 0; i < g.length; i++) {
+    for (int j = 0; j < g[i].length; j++) {
+      g[i][j] = new Ball(
+    }
+  }
 }
 
 void newProjectile(int psize) {
