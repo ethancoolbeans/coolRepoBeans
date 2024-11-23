@@ -1,3 +1,17 @@
+```
+Ethan Ma
+NeXTCS
+HW28 -- 2D Arrays, type Ball in each index, Collision Check
+2024-11-23
+time spent: 0.8
+```
+DISCO:
+- You can store class types in an array (e.g. an array of type Ball)
+- To apply the same method to every Ball, iterate through the array like normal
+QCC:
+N/A
+
+
 Ball[][] grid;
 Ball projectile;
 
