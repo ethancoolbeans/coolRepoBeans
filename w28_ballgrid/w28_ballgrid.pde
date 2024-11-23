@@ -1,8 +1,10 @@
-Ball[][] grid;
+Ball[][] grid = new Ball[3][5];
 Ball projectile;
 
 void setup() {
   background(255);
+  size(500, 500);
+  makeBalls(grid);
   drawGrid(grid);
   projectile.move();
   projectile.display();
