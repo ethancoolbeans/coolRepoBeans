@@ -1,20 +1,21 @@
-Ball[][] grid = new Ball[3][5];
+Ball[][] grid;
 Ball projectile;
 
 void setup() {
   background(255);
   size(500, 500);
+  grid = new Ball[3][5];
   makeBalls(grid);
   drawGrid(grid);
-  projectile.move();
-  projectile.display();
+  newProjectile(10);
 }
 
 void draw() {
   background(255);
   drawGrid(grid);
   projectile.display();
-  //processCollisions(projectile, g);
+  projectile.move();
+  processCollisions(projectile, grid);
 }
 
 void keyPressed() {
@@ -39,17 +40,29 @@ void makeBalls(Ball[][] g) {
 }
 
 void newProjectile(int psize) {
-  projectile = new Ball(new PVector(width/2, height), psize);
+  projectile = new Ball(new PVector(width/2, height-psize), psize);
 }
 
 void drawGrid(Ball[][] g) {
   for (int i = 0; i < g.length; i++) {
     for (int j = 0; j < g[i].length; j++) {
-      g[i][j].display();
+      if (g[i][j] != null) {
+        g[i][j].display();
+      } else {
+      }
     }
   }
 }
 
 void processCollisions(Ball p, Ball[][] g) {
-  
+  for (int i = 0; i < g.length; i++) {
+      for (int j = 0; j < g[i].length; j++) {
+        if (g[i][j] != null) {
+          if (p.collisionCheck(g[i][j])) {
+            g[i][j] = null;
+            newProjectile(10);
+          }
+        }
+      }
+  }
 }
