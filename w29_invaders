@@ -2,6 +2,7 @@ Ball[][] grid;
 Ball projectile;
 
 int ballSize = 50;
+boolean moveRight = true;
 
 void setup() {
   background(255);
@@ -10,6 +11,7 @@ void setup() {
   makeBalls(grid, ballSize);
   drawGrid(grid);
   newProjectile(10);
+  frameRate(30);
 }
 
 void draw() {
@@ -18,7 +20,9 @@ void draw() {
   projectile.display();
   projectile.move();
   processCollisions(projectile, grid);
-  moveBalls(grid, ballSize);
+  if (frameCount % 30 == 0) {
+    moveBalls(grid, ballSize);
+  }
 }
 
 void keyPressed() {
@@ -58,24 +62,41 @@ void drawGrid(Ball[][] g) {
 
 void processCollisions(Ball p, Ball[][] g) {
   for (int i = 0; i < g.length; i++) {
-      for (int j = 0; j < g[i].length; j++) {
-        if (g[i][j] != null) {
-          if (p.collisionCheck(g[i][j])) {
-            g[i][j] = null;
-            newProjectile(10);
-          }
+    for (int j = 0; j < g[i].length; j++) {
+      if (g[i][j] != null) {
+        if (p.collisionCheck(g[i][j])) {
+          g[i][j] = null;
+          newProjectile(10);
         }
       }
+    }
   }
 }
 
 void moveBalls(Ball[][] g, int size) {
-  for (int i = 0; i < g.length; i++) {
+  if (moveRight) {
+    for (int i = 0; i < g.length; i++) {
       for (int j = 0; j < g[i].length; j++) {
         if (g[i][j] != null) {
-          if (
           g[i][j].center.x += size;
+          if (g[i][j].center.x > width-size) {
+            moveRight = !moveRight;
+            g[i][j].center.y += size;
+          }
         }
       }
+    }
+  } else {
+    for (int i = 0; i < g.length; i++) {
+      for (int j = 0; j < g[i].length; j++) {
+        if (g[i][j] != null) {
+          g[i][j].center.x -= size;
+          if (g[i][j].center.x < size) {
+            moveRight = !moveRight;
+            g[i][j].center.y += size;
+          }
+        }
+      }
+    }
   }
 }
