@@ -1,3 +1,18 @@
+```
+Ethan Ma
+NeXTCS
+HW30 -- Method Overloading, making a second constructor that only takes in ONE of the original arguments
+2024-12-10
+time spent: 0.5
+```
+
+DISCO:
+- 
+QCC:
+N/A
+
+
+
 int MOUSE_MODE = 0;
 int KEY_MODE = 1;
 int NORMAL = 0;
