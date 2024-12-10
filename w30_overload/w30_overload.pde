@@ -1,6 +1,8 @@
 int MOUSE_MODE = 0;
 int KEY_MODE = 1;
 int NORMAL = 0;
+int RESIZE = 1;
+int RANDOM = 2;
 int BACKWARDS = 1;
 
 int MAX_STAMPS = 100;
@@ -46,6 +48,12 @@ void keyPressed()
     if (key == 'n') {
   moveMode = NORMAL;
     }
+    if (key == 'g') {
+  moveMode = RESIZE;
+    }
+    if (key == 'r') {
+  moveMode = RANDOM;
+    }
 
 
     if (mode == KEY_MODE) {
@@ -55,11 +63,17 @@ void keyPressed()
       keyCode == LEFT ||
       keyCode == RIGHT) {
       direction = keyCode;
-
+      if (moveMode == NORMAL) {move(direction);}
+      else if (moveMode == RESIZE) {move(direction, 1.2);}
+      if (moveMode == RANDOM) {move();}
   }//movement
 
   if (key == ' ') {
-      stamps.Stamp(stampSize);
+    int i = findSpot();
+    if (i != -1) {
+  stamps[i] = current;  
+    current = new Stamp(stampSize);
+    }
   }//stamp
 
     }//in key mode
@@ -108,3 +122,23 @@ void stamp()
   }
     }//room in array
 }//stamp
+
+void move(int direction) {
+  if (direction == UP) {current.position.y--;}
+  else if (direction == DOWN) {current.position.y++;}
+  else if (direction == LEFT) {current.position.x--;}
+  else if (direction == RIGHT) {current.position.x++;}
+}
+
+void move(int direction, float sizeFactor) {
+  if (direction == UP) {current.position.y--;}
+  else if (direction == DOWN) {current.position.y++;}
+  else if (direction == LEFT) {current.position.x--;}
+  else if (direction == RIGHT) {current.position.x++;}
+  current.stampSize *= sizeFactor;
+}
+
+void move() {
+  current.position.x = random(width);
+  current.position.y = random(height);
+}
