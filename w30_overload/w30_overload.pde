@@ -7,11 +7,11 @@ time spent: 0.5
 ```
 
 DISCO:
-- 
+- Being able to change one datatype in a method
+- Having 2 methods with the same name
 QCC:
-N/A
-
-
+- Not 100% sure I understand method overloading, but does it take an object "stamp" and change the value of one of its
+datatypes instead of making an entirely new object with entirely separate datatypes?
 
 int MOUSE_MODE = 0;
 int KEY_MODE = 1;
