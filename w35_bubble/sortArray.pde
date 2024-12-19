@@ -54,12 +54,10 @@ class SortArray
     if (bsortEnd != 1) {
       if (bsortPos1 < bsortEnd) {
         if (haystack[bsortPos1] > haystack[bsortPos0]) {
-          swap(haystack[bsortPos1], haystack[bsortPos0]);
+          swap(bsortPos1, bsortPos0);
           bsortPos1 ++;
           bsortPos0 ++;
         } else {
-        }
-      } else {
         resetSortVars();
       }
     } else {
