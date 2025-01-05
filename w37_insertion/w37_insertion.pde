@@ -1,3 +1,18 @@
+/*
+```
+ Ethan Ma
+ NeXTCS
+ HW37 -- Selection sort, running one pass
+ 2024-12-23
+ time spent: 1.5
+ ```
+ 
+ DISCO:
+ -  
+ QCC:
+ - How do I keep the rectangles moving towards the right? My champ rectangle just stays in the first column.
+ */
+
 int BUBBLE = 0;
 int SELECTION = 1;
 int INSERTION = 2;
