@@ -21,10 +21,6 @@ class SortArray
   int isortInsertPos;
   int isortValue;
 
-  //Counter
-  int comps = 0;
-  int swaps = 0;
-
   SortArray(int algo, int dsize, int mvalue)
   {
     maxValue = mvalue;
@@ -48,8 +44,6 @@ class SortArray
   void resetSortVars()
   {
     sorted = false;
-    swaps = 0;
-    comps = 0;
 
     //bubble sort vars
     bsortPos0 = 0;
@@ -70,10 +64,8 @@ class SortArray
   void bubbleSortOnce() {
     if (bsortEnd > 0) {
       if (bsortPos1 < bsortEnd) {
-        comps++;
         if (haystack[bsortPos0] > haystack[bsortPos1]) {
           swap(bsortPos0, bsortPos1);
-          swaps++;
         }
         bsortPos0++;
         bsortPos1++;
@@ -181,16 +173,6 @@ class SortArray
     } else if (algorithm == INSERTION) {
       text("Insertion Sort", 0, 0);
     }
-    String stats = "n: " + haystack.length;
-    if (advanced) {
-      stats+= "\ncomps: " + comps;
-      stats+= "\nswaps: ";
-      if (algorithm == INSERTION) {
-        stats+= swaps/3;
-      } else {
-        stats+= swaps;
-      }
-    }//display advanced stats
     textAlign(RIGHT, TOP);
     text(stats, width, 0);
   }//showStats
