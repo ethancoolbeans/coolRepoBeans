@@ -2,15 +2,15 @@
 ```
  Ethan Ma
  NeXTCS
- HW37 -- Selection sort, running one pass
+ HW37 -- Insertion sort, running one pass
  2024-12-23
  time spent: 1.5
  ```
  
  DISCO:
- -  
+ - Insertion sort: comparing the max value from the iterated list so far with values to the right. Insert at the end. 
  QCC:
- - How do I keep the rectangles moving towards the right? My champ rectangle just stays in the first column.
+ - N/A
  */
 
 int BUBBLE = 0;
