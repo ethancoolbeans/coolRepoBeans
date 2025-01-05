@@ -173,6 +173,7 @@ class SortArray
     } else if (algorithm == INSERTION) {
       text("Insertion Sort", 0, 0);
     }
+	  String stats = "n: " + haystack.length;
     textAlign(RIGHT, TOP);
     text(stats, width, 0);
   }//showStats
