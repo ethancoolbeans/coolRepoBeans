@@ -1,3 +1,20 @@
+/*
+```
+ Ethan Ma
+ NeXTCS
+ HW38 -- sortmetrics, measuring the number of comparisons and swaps for a set to become completely sorted
+ 2024-1-5
+ time spent: 0.5
+ ```
+ 
+ DISCO:
+ - N/A 
+ QCC:
+ - I'm not sure how swaps and comparisons should be counted for insertion sort. The left-most unsorted bar is compared
+consecutively with every bar in the sorted section. Should I increment comps for every comparison, and swaps for every swap 
+towards the left?
+ */
+
 int BUBBLE = 0;
 int SELECTION = 1;
 int INSERTION = 2;
